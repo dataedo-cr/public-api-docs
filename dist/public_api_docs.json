@@ -1,0 +1,4700 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Public API v1",
+    "contact": {
+      "name": "Support",
+      "email": "support@dataedo.com"
+    },
+    "license": {
+      "name": "Dataedo License",
+      "url": "https://dataedo.com/license"
+    },
+    "version": "3.0.0"
+  },
+  "paths": {
+    "/public/v1/areas/{id}": {
+      "get": {
+        "tags": [
+          "AreasV1"
+        ],
+        "summary": "Finds area simple data by Id.",
+        "description": "Returns a single area base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/areas/{id}/detailed": {
+      "get": {
+        "tags": [
+          "AreasV1"
+        ],
+        "summary": "Finds area detailed data by Id.",
+        "description": "Returns a single area detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the area stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.DetailedAreaResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.DetailedAreaResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.DetailedAreaResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/areas/{id}/links": {
+      "get": {
+        "tags": [
+          "AreasV1"
+        ],
+        "summary": "Finds a list of links for the area by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the area stored in the Dataedo Repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Available filters: type, subType, name, title, status, source.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorts: type, subType, name, title, status, source.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/areas/{id}/title": {
+      "post": {
+        "tags": [
+          "AreasV1"
+        ],
+        "summary": "Updates the title of the area by Id.",
+        "description": "Updates title of a single area by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the area stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The title of a single area.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}": {
+      "get": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "Finds column simple data by Id.",
+        "description": "Returns a single column entity base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}/detailed": {
+      "get": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "Finds column detailed data by Id.",
+        "description": "Returns a single column detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.DetailedColumnResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.DetailedColumnResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.DetailedColumnResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}/glossary-entries": {
+      "get": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "Finds column entity linked glossary entries by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}/description": {
+      "post": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "This method is used to update the description of the column by Id.",
+        "description": "Updates description of a single column by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.UpdateDescriptionRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.UpdateDescriptionRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.UpdateDescriptionRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}/title": {
+      "post": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "Updates the title of the column by Id.",
+        "description": "Updates title of a single column by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/custom-fields": {
+      "get": {
+        "tags": [
+          "CustomFieldsV1"
+        ],
+        "summary": "Gets definition of custom fields.",
+        "description": "Returns custom field definitions.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Finds data set entity simple data by Id.",
+        "description": "Returns a single data set entity base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/detailed": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Finds data set entity detailed data by Id.",
+        "description": "Returns a single data set entity base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DetailedDataSetResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DetailedDataSetResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DetailedDataSetResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/domains": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Finds data set entity domains by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/areas": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Finds data set entity areas by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/glossary-entries": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Finds data set entity linked glossary entries by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/columns": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Finds data set entity columns by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Title filter example: \"title==Dataedo Repository\".\r\n<remarks>\r\nAvailable filtering logic: title, name, description, ordinalPosition, dataType, status.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'ordinalPosition'. To sort descending, write '-ordinalPosition'.</example><remarks>\r\nAvailable sorting logic: ordinalPosition, dataType, status.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/title": {
+      "post": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Updates the title of the data set entity by Id.",
+        "description": "Updates title of a single data set by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "maximum": 2147483647,
+              "minimum": 0,
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds data source entity simple data by Id.",
+        "description": "Returns a single data source entity base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/detailed": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds data source entity detailed data by Id.",
+        "description": "Returns a single data source entity detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.DetailedDataSourceResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.DetailedDataSourceResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.DetailedDataSourceResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds a data source entities list.",
+        "parameters": [
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Query string to filter data sources by a class or title. \r\nAccepted class filter values: \"class==DATABASE\", \"class==GLOSSARY\", \"class==REPORTING\".\r\nTitle filter example: \"title==Dataedo Repository\".\r\n<remarks>\r\nAvailable filtering logic: title, host, port, descriptionPlain.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorting logic: title, host, port, descriptionPlain.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/data-sets": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds datasets by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Title filter example: \"title==Dataedo Repository\".\r\n<remarks>\r\nAvailable filtering logic: objectType, title, name, schema.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorting logic: objectType, title, name, schema.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/programs": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds programs by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Title filter example: \"title==Dataedo Repository\".\r\n<remarks>\r\nAvailable filtering logic: objectType, title, name, schema, descriptionPlain.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters. Write specific convention:\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorting logic: objectType, title, name, schema, descriptionPlain.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/reports": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds reports by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source entity stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Query string to filter data sources by a class or title. \r\nTitle filter example: \"title==Dataedo Repository\".\r\n<remarks>\r\nAvailable filtering logic: objectType, title, name, schema, descriptionPlain.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorting logic: objectType, title, name, schema, descriptionPlain.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/domains": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds data source domains by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/areas": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Finds data source areas by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/title": {
+      "post": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Updates the title of the program by Id.",
+        "description": "Updates title of a single data source by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the area stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}": {
+      "get": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Finds domain simple data by Id.",
+        "description": "Returns a single domain data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domain stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}/detailed": {
+      "get": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Finds program detailed data by Id.",
+        "description": "Returns a single domain detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domain stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.DetailedDomainResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.DetailedDomainResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.DetailedDomainResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains": {
+      "get": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Finds domains list.",
+        "parameters": [
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Query string to filter domains by a type.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorting logic: title, descriptionPlain, type.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}/areas": {
+      "get": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Finds areas list by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domain stored in the Dataedo Repository",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}/links": {
+      "get": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Finds a list of links for the domain by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domain stored in the Dataedo Repository",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Available filters: type, subType, name, title, status, source.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorts: type, subType, name, title, status, source.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}/title": {
+      "post": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "This method is used to update the title of the domain by Id.",
+        "description": "Updates title of a single domain by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domains stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}": {
+      "get": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Finds glossary entry simple data by Id.",
+        "description": "Returns a single glossary entry base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/detailed": {
+      "get": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Finds glossary entry detailed data by Id.",
+        "description": "Returns a single glossary entry detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.DetailedGlossaryEntryResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.DetailedGlossaryEntryResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.DetailedGlossaryEntryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/domains": {
+      "get": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Finds domains which the provided glossary entry belongs to.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/areas": {
+      "get": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Finds areas which the provided glossary entry belongs to.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/links": {
+      "get": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Finds a list of links for the glossary entry by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo Repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Available filters: type, subType, name, title, status, source.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'title'. To sort descending, write '-title'.</example><remarks>\r\nAvailable sorts: type, subType, name, title, status, source.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/title": {
+      "post": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Updates the title of the glossary entry by Id.",
+        "description": "Updates title of a single glossary entry by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries": {
+      "post": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Creates a new glossary entry.",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Application.Features.GlossaryEntries.Services.Commands.AddGlossaryEntryCommand.AddGlossaryEntryCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Application.Features.GlossaryEntries.Services.Commands.AddGlossaryEntryCommand.AddGlossaryEntryCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Application.Features.GlossaryEntries.Services.Commands.AddGlossaryEntryCommand.AddGlossaryEntryCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entry-types": {
+      "get": {
+        "tags": [
+          "GlossaryEntryTypesV1"
+        ],
+        "summary": "Gets glossary entry types.",
+        "description": "Returns glossary entry types.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Finds program simple data by Id.",
+        "description": "Returns a single program base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/detailed": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Finds program detailed data by Id.",
+        "description": "Returns a single program detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.DetailedProgramResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.DetailedProgramResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.DetailedProgramResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/domains": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Finds program domains by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/areas": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Finds program areas by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/glossary-entries": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Finds program linked glossary entries by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/parameters": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Finds parameters by program Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Filtering parameters list is not implemented yet.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sorting parameters list is not implemented yet.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/title": {
+      "post": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "This method is used to update the title of the program by Id.",
+        "description": "Updates title of a single program by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds a report simple data by Id.",
+        "description": "Returns a single report base data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.Responses.SimpleReportResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.Responses.SimpleReportResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.Responses.SimpleReportResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/detailed": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds report detailed data by Id.",
+        "description": "Returns a single report detailed data by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.Responses.DetailedReportResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.Responses.DetailedReportResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.Responses.DetailedReportResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/domains": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds report domains by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/areas": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds report areas by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/glossary-entries": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds report linked glossary entries by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/parameters": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds parameters by report Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Filtering parameters list is not implemented yet.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sorting parameters list is not implemented yet.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/columns": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Finds report columns by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "filters",
+            "in": "query",
+            "description": "Title filter example: \"title==Dataedo Repository\".\r\n<remarks>\r\nAvailable filtering logic: title, name, description, ordinalPosition, dataType, status.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sorts",
+            "in": "query",
+            "description": "Sort parameters.\r\n<example>To sort by title ascending, write 'ordinalPosition'. To sort descending, write '-ordinalPosition'.</example><remarks>\r\nAvailable sorting logic: ordinalPosition, dataType, status.\r\n</remarks>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Items per page.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/title": {
+      "post": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Updates the title of the report by Id.",
+        "description": "Updates title of a single report by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/workflow-statuses": {
+      "get": {
+        "tags": [
+          "WorkflowStatusesV1"
+        ],
+        "summary": "Returns workflow status list.",
+        "description": "Returns workflow status list.",
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.WorkflowStatuses.WorkflowStatusResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.WorkflowStatuses.WorkflowStatusResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.WorkflowStatuses.WorkflowStatusResponse]"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Dataedo.Application.Features.GlossaryEntries.Services.Commands.AddGlossaryEntryCommand.AddGlossaryEntryCommand": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "glossaryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "typeId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "workflowStatusId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "customFields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.WorkflowStatuses.WorkflowStatusResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.WorkflowStatuses.WorkflowStatusResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse": {
+        "type": "object",
+        "properties": {
+          "plain": {
+            "type": "string",
+            "description": "Holds description in plain text only, without HTML tags.",
+            "nullable": true,
+            "example": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
+          },
+          "plainShort": {
+            "type": "string",
+            "description": "Short version of Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse.Plain.",
+            "nullable": true,
+            "readOnly": true,
+            "example": "Lorem Ipsum is simply dummy text of the printing and typesetting indus..."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Description of the requested object. It contains plain text description only."
+      },
+      "Dataedo.Public.Models.Public.v1.Common.MetadataResponse": {
+        "type": "object",
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "Gets or sets the time record was created.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Gets or sets the user that created record.",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "lastModificationDate": {
+            "type": "string",
+            "description": "Gets or sets the time record was updated.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Gets or sets the user that updated record.",
+            "nullable": true,
+            "example": "John Doe"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The class providing the record metadata (creation and modification information)."
+      },
+      "Dataedo.Public.Models.Public.v1.Common.ObjectMetadataResponse": {
+        "type": "object",
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "Gets or sets the time record was created.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Gets or sets the user that created record.",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "lastModificationDate": {
+            "type": "string",
+            "description": "Gets or sets the time record was updated.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "modifiedBy": {
+            "type": "string",
+            "description": "Gets or sets the user that updated record.",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "databaseCreationDate": {
+            "type": "string",
+            "description": "Gets or sets the time object was created.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "databaseLastModificationDate": {
+            "type": "string",
+            "description": "Gets or sets the time object was last updated.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "importDate": {
+            "type": "string",
+            "description": "Gets or sets the time of last import from database.",
+            "format": "date-time",
+            "nullable": true,
+            "example": "2021-01-01T00:00:00Z"
+          },
+          "importedBy": {
+            "type": "string",
+            "description": "Gets or sets the login of user that last imported object from database.",
+            "nullable": true,
+            "example": "John Doe"
+          }
+        },
+        "additionalProperties": false,
+        "description": "The class providing metadata (creation in DBMS, import, creation and modification information)."
+      },
+      "Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Areas.DetailedAreaResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Area entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "parentAreaId": {
+            "type": "integer",
+            "description": "Id of the parent area.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "domainId": {
+            "type": "integer",
+            "description": "Id of the parent domain.",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Title/name of the area.",
+            "nullable": true,
+            "example": "Platform"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Area entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "parentAreaId": {
+            "type": "integer",
+            "description": "Id of the parent area.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "domainId": {
+            "type": "integer",
+            "description": "Id of the parent domain.",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Title/name of the area.",
+            "nullable": true,
+            "example": "Platform"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Columns.Responses.ColumnProperties": {
+        "type": "object",
+        "properties": {
+          "dataType": {
+            "type": "string",
+            "description": "Column data type.",
+            "nullable": true,
+            "example": "NVARCHAR"
+          },
+          "itemType": {
+            "type": "string",
+            "description": "Type of the field/column.",
+            "nullable": true,
+            "example": "Column"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source of the row: 'DBMS' for imported from a database, 'USER' for manually defined by a user in Dataedo repository.",
+            "nullable": true,
+            "example": "DBMS"
+          },
+          "nullable": {
+            "type": "boolean",
+            "description": "True if column is nullable, false otherwise.",
+            "nullable": true,
+            "example": true
+          },
+          "isIdentity": {
+            "type": "boolean",
+            "description": "Is column an identity/auto incremented column. 1 - identity/auto increment, 0 - otherwise.",
+            "example": false
+          },
+          "isComputed": {
+            "type": "boolean",
+            "description": "Is column a computed column. 1 - computed column, 0 - regular column. If the column is computed, the calculation formula is imported to computed_formula field.",
+            "example": false
+          },
+          "computedFormula": {
+            "type": "string",
+            "description": "Calculation formula for computed columns. NULL for regular fields.",
+            "nullable": true
+          },
+          "defaultValue": {
+            "type": "string",
+            "description": "Formula of column default value. NULL if the column has not default value specification.",
+            "nullable": true,
+            "example": "NULL"
+          },
+          "dataLength": {
+            "type": "string",
+            "description": "Data length/precision as text. Depending on data type it can have different formats, e.g. \"100\", \"5,4\", \"MAX\" etc. Null if the column has no length/precision defined.",
+            "nullable": true,
+            "example": "100"
+          },
+          "ordinalPosition": {
+            "type": "integer",
+            "description": "Position of the column in a table in DBMS.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "sort": {
+            "type": "integer",
+            "description": "Alternative column sorting defined by user in Dataedo.",
+            "format": "int32",
+            "example": 1
+          },
+          "status": {
+            "type": "string",
+            "description": "'D' if the column was deleted in DBMS, 'A' otherwise. Deleted columns aren't exported to documentation.",
+            "nullable": true,
+            "example": "A"
+          },
+          "level": {
+            "type": "integer",
+            "description": "Hierarchy level for hierarchical structures. Regular \"flat\" structures such as tables have 1.",
+            "format": "int32",
+            "example": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Columns.Responses.DetailedColumnResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Column entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "tableId": {
+            "type": "integer",
+            "description": "Table to which column belongs.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "reportId": {
+            "type": "integer",
+            "description": "Report to which visualization belongs.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "lookupId": {
+            "type": "integer",
+            "description": "Lookup which values are stored in this column.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "Parent column for hierarchical data structures.",
+            "format": "int32",
+            "nullable": true,
+            "example": 2
+          },
+          "path": {
+            "type": "string",
+            "description": "Column path for hierarchical structures, e.g. field author.address.street will have street as name and author.address as path.",
+            "nullable": true,
+            "example": "author.address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Column entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "street"
+          },
+          "title": {
+            "type": "string",
+            "description": "Column entity title in Dataedo repository.",
+            "nullable": true,
+            "example": "Street"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.ColumnProperties"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Column entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "tableId": {
+            "type": "integer",
+            "description": "Table to which column belongs.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "reportId": {
+            "type": "integer",
+            "description": "Report to which visualization belongs.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "lookupId": {
+            "type": "integer",
+            "description": "Lookup which values are stored in this column.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "Parent column for hierarchical data structures.",
+            "format": "int32",
+            "nullable": true,
+            "example": 2
+          },
+          "path": {
+            "type": "string",
+            "description": "Column path for hierarchical structures, e.g. field author.address.street will have street as name and author.address as path.",
+            "nullable": true,
+            "example": "author.address"
+          },
+          "name": {
+            "type": "string",
+            "description": "Column entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "street"
+          },
+          "title": {
+            "type": "string",
+            "description": "Column entity title in Dataedo repository.",
+            "nullable": true,
+            "example": "Street"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.ColumnProperties"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Columns.Responses.UpdateDescriptionRequest": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldClassResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Custom field class entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-friendly field class name.",
+            "nullable": true,
+            "example": "List Open"
+          },
+          "code": {
+            "type": "string",
+            "description": "System-friendly unique text identifier.",
+            "nullable": true,
+            "example": "LIST_OPEN"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Custom field entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the column in physical tables where custom field is stored,\r\ne.g. field1 (which is in all schema tables, i.e. tables.field1, columns.field1...).",
+            "nullable": true,
+            "example": "field1"
+          },
+          "title": {
+            "type": "string",
+            "description": "Field display name.",
+            "nullable": true,
+            "example": "Color"
+          },
+          "code": {
+            "type": "string",
+            "description": "Text code set on creation of the field.",
+            "nullable": true,
+            "example": "color"
+          },
+          "description": {
+            "type": "string",
+            "description": "Custom field admin comments.",
+            "nullable": true,
+            "example": "Color of the product"
+          },
+          "type": {
+            "type": "string",
+            "description": "Field type:\r\nTEXT - plain text field,\r\nLIST_CLOSED - closed drop-down,\r\nLIST_OPEN - open drop-down\r\nMULTI_VALUE_LIST_CLOSED - closed multi-select drop-down\r\nINTEGER - number\r\nCHECKBOX - checkbox",
+            "nullable": true,
+            "example": "LIST_OPEN"
+          },
+          "definition": {
+            "type": "string",
+            "description": "List of values for lists as text separated with commas. E.g. 'Blue, Red, Green'.",
+            "nullable": true,
+            "example": "Blue, Red, Green"
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Values added by the user using the drop-down list for open lists.",
+            "nullable": true
+          },
+          "class": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldClassResponse"
+          },
+          "visibility": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldVisibilityResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldVisibilityResponse": {
+        "type": "object",
+        "properties": {
+          "tableVisibility": {
+            "type": "boolean",
+            "description": "Is field available for tables and views (columns are defined separately).",
+            "nullable": true,
+            "example": true
+          },
+          "procedureVisibility": {
+            "type": "boolean",
+            "description": "Is field available for procedures and functions (columns are defined separately).",
+            "nullable": true,
+            "example": true
+          },
+          "columnVisibility": {
+            "type": "boolean",
+            "description": "Is field available for tables and views columns.",
+            "nullable": true,
+            "example": true
+          },
+          "relationVisibility": {
+            "type": "boolean",
+            "description": "Is field available for table/view relations.",
+            "nullable": true,
+            "example": true
+          },
+          "keyVisibility": {
+            "type": "boolean",
+            "description": "Is field available for table/view primary/unique keys.",
+            "nullable": true,
+            "example": true
+          },
+          "triggerVisibility": {
+            "type": "boolean",
+            "description": "Is field available for triggers.",
+            "nullable": true,
+            "example": true
+          },
+          "parameterVisibility": {
+            "type": "boolean",
+            "description": "Is table available for parameters.",
+            "nullable": true,
+            "example": true
+          },
+          "documentationVisibility": {
+            "type": "boolean",
+            "description": "Is field available for documentation.",
+            "nullable": true,
+            "example": true
+          },
+          "termVisibility": {
+            "type": "boolean",
+            "description": "Is field available for business glossary term.",
+            "nullable": true,
+            "example": true
+          },
+          "lookupVisibility": {
+            "type": "boolean",
+            "description": "Is field available for lookups.",
+            "nullable": true,
+            "example": true
+          },
+          "lookupValueVisibility": {
+            "type": "boolean",
+            "description": "Is field available for lookups values.",
+            "nullable": true,
+            "example": true
+          },
+          "reportVisibility": {
+            "type": "boolean",
+            "description": "Is field available for report.",
+            "nullable": true,
+            "example": true
+          },
+          "domainVisibility": {
+            "type": "boolean",
+            "description": "Is field available for domain.",
+            "nullable": true,
+            "example": true
+          },
+          "areaVisibility": {
+            "type": "boolean",
+            "description": "Is field available for area.",
+            "nullable": true,
+            "example": true
+          },
+          "columnLineageVisibility": {
+            "type": "boolean",
+            "description": "Is field available for lineage.",
+            "nullable": true,
+            "example": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DataSetProperties": {
+        "type": "object",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source of the row: 'DBMS' for imported from database, 'USER' for manual defined by user in Dataedo repository.",
+            "nullable": true,
+            "example": "DBMS"
+          },
+          "status": {
+            "type": "string",
+            "description": "'D' if table/view was deleted from DBMS, 'A' otherwise.",
+            "nullable": true,
+            "example": "A"
+          },
+          "definition": {
+            "type": "string",
+            "description": "View script imported from DBMS.",
+            "nullable": true,
+            "example": "SELECT * FROM customers"
+          },
+          "location": {
+            "type": "string",
+            "description": "Table physical location.",
+            "nullable": true,
+            "example": "dbo"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language of the script, if relevant (e.g. views). If null then it is assumed to be 'SQL'.",
+            "nullable": true,
+            "example": "SQL"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "ID of the row in an external system. Used for synchronization.",
+            "nullable": true,
+            "example": ""
+          },
+          "linkedSourceId": {
+            "type": "integer",
+            "description": "ID of the linked source which defines source database for an object.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "statsWhereFilter": {
+            "type": "string",
+            "description": "Contains WHERE filter. Used in filtering of Sample data in Data Profiling.",
+            "nullable": true,
+            "example": ""
+          },
+          "statsSource": {
+            "type": "string",
+            "description": "Name of the source of statistics. 'Profiling' for Data Profiling.",
+            "nullable": true,
+            "example": "Profiling"
+          },
+          "statsRowCount": {
+            "type": "integer",
+            "description": "Number of rows, found in the table during the last saved lookup.",
+            "format": "int64",
+            "nullable": true,
+            "example": 100
+          },
+          "statsRowCountFiltered": {
+            "type": "integer",
+            "description": "Contains the number of profiling rows with the filter applied (the filter is stored in the Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DataSetProperties.StatsWhereFilter).",
+            "format": "int64",
+            "nullable": true,
+            "example": 100
+          },
+          "statsDatetime": {
+            "type": "string",
+            "description": "Time of the last saved lookup.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DetailedDataSetResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Data set entity id in Dataedo repository",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Data set entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "customers_v"
+          },
+          "schema": {
+            "type": "string",
+            "description": "Schema name in Dataedo repository.",
+            "nullable": true,
+            "example": "dbo"
+          },
+          "title": {
+            "type": "string",
+            "description": "Data set entity title in Dataedo repository.",
+            "nullable": true,
+            "example": "Customers"
+          },
+          "objectType": {
+            "type": "string",
+            "description": "Code of object type.",
+            "nullable": true,
+            "example": "VIEW"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Code of object sub type.",
+            "nullable": true,
+            "example": "VIEW"
+          },
+          "databaseId": {
+            "type": "integer",
+            "description": "Database id in Dataedo repository which contains the data set",
+            "format": "int32",
+            "example": 1
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "ID of the parent object.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "parentObjectType": {
+            "type": "string",
+            "description": "Object type of the parent object.",
+            "nullable": true,
+            "example": "TABLE"
+          },
+          "updateId": {
+            "type": "integer",
+            "description": "ID of the last schema import/update from the source database where the element was created/modified.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DataSetProperties"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.ObjectMetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.SimpleDataSetResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Data set entity id in Dataedo repository",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Data set entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "customers_v"
+          },
+          "schema": {
+            "type": "string",
+            "description": "Schema name in Dataedo repository.",
+            "nullable": true,
+            "example": "dbo"
+          },
+          "title": {
+            "type": "string",
+            "description": "Data set entity title in Dataedo repository.",
+            "nullable": true,
+            "example": "Customers"
+          },
+          "objectType": {
+            "type": "string",
+            "description": "Code of object type.",
+            "nullable": true,
+            "example": "VIEW"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Code of object sub type.",
+            "nullable": true,
+            "example": "VIEW"
+          },
+          "databaseId": {
+            "type": "integer",
+            "description": "Database id in Dataedo repository which contains the data set",
+            "format": "int32",
+            "example": 1
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "ID of the parent object.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "parentObjectType": {
+            "type": "string",
+            "description": "Object type of the parent object.",
+            "nullable": true,
+            "example": "TABLE"
+          },
+          "updateId": {
+            "type": "integer",
+            "description": "ID of the last schema import/update from the source database where the element was created/modified.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSets.Responses.DataSetProperties"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple data set response. It contains only the basic information about the table."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.DetailedDataSourceResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Data source entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Data source entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "dataedo_repository"
+          },
+          "title": {
+            "type": "string",
+            "description": "Data set source title in Dataedo repository.",
+            "nullable": true,
+            "example": "Dataedo Repository"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of documentation:\r\nfor DBMS its the type: ORACLE, SQLSERVER, etc.,\r\nMANUAL for manual documentations,\r\nBUSINESS_GLOSSARY for business glossary.",
+            "nullable": true,
+            "example": "SQLSERVER"
+          },
+          "class": {
+            "type": "string",
+            "description": "Documentation class.",
+            "nullable": true,
+            "example": "DATABASE"
+          },
+          "guid": {
+            "type": "string",
+            "description": "Unique documentation identifier, unique across repositories.",
+            "format": "uuid"
+          },
+          "dbmsVersion": {
+            "type": "string",
+            "description": "DBMS version as returned by DBMS at the time of last connection.",
+            "nullable": true
+          },
+          "filter": {
+            "type": "string",
+            "description": "Import filter definition saved in XML format.",
+            "nullable": true
+          },
+          "authenticationDatabase": {
+            "type": "string",
+            "description": "Name of the database to authenticate the user in.",
+            "nullable": true
+          },
+          "replicaSet": {
+            "type": "string",
+            "description": "Replica set name.",
+            "nullable": true
+          },
+          "perspectiveName": {
+            "type": "string",
+            "description": "Perspective name of SSAS Tabular Model.",
+            "nullable": true
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          },
+          "schemaSettings": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SchemaSettingsResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SchemaSettingsResponse": {
+        "type": "object",
+        "properties": {
+          "showSchema": {
+            "type": "boolean",
+            "description": "Flag that indicates whether table names should include schema name, e.g. dbo.customer vs customer.",
+            "nullable": true,
+            "example": true
+          },
+          "showSchemaOverride": {
+            "type": "boolean",
+            "description": "User defined 'show schema' flag override.",
+            "nullable": true,
+            "example": true
+          },
+          "differentSchema": {
+            "type": "boolean",
+            "description": "Used for Oracle: 1 if user selected schema different than user, 0 otherwise.",
+            "nullable": true,
+            "example": false
+          },
+          "multipleSchemas": {
+            "type": "boolean",
+            "description": "Used for Oracle: 1 if multiple schemas were selected.",
+            "nullable": true,
+            "example": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.DataSources.Responses.SimpleDataSourceResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Data source entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Data source entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "dataedo_repository"
+          },
+          "title": {
+            "type": "string",
+            "description": "Data set source title in Dataedo repository.",
+            "nullable": true,
+            "example": "Dataedo Repository"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of documentation:\r\nfor DBMS its the type: ORACLE, SQLSERVER, etc.,\r\nMANUAL for manual documentations,\r\nBUSINESS_GLOSSARY for business glossary.",
+            "nullable": true,
+            "example": "SQLSERVER"
+          },
+          "class": {
+            "type": "string",
+            "description": "Documentation class.",
+            "nullable": true,
+            "example": "DATABASE"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple data set response. It contains only the basic information about the table."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Domains.DetailedDomainResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Domain Id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Program title in Dataedo repository.",
+            "nullable": true,
+            "example": "Dataedo Repository Documentation"
+          },
+          "type": {
+            "type": "string",
+            "description": "Domain's type.",
+            "nullable": true,
+            "example": "DATA"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Domain Id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Program title in Dataedo repository.",
+            "nullable": true,
+            "example": "Dataedo Repository Documentation"
+          },
+          "type": {
+            "type": "string",
+            "description": "Domain's type.",
+            "nullable": true,
+            "example": "DATA"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple program response. It contains only the basic information about the program."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.DetailedGlossaryEntryResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Glossary entry Id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "glossaryId": {
+            "type": "integer",
+            "description": "Database id in Dataedo repository which contains the table.",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Program title in Dataedo repository.",
+            "nullable": true,
+            "example": "Customer"
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "Parent glossary entry id.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "typeId": {
+            "type": "integer",
+            "description": "Type of term: term, policy, category, etc.",
+            "format": "int32",
+            "example": 1
+          },
+          "type": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Type id",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Term type title/name (Term, Category, Policy, ...)",
+            "nullable": true,
+            "example": "Entity"
+          },
+          "code": {
+            "type": "string",
+            "description": "Code of the item type - ENTITY, POLICY, RULE, CATEGORY",
+            "nullable": true,
+            "example": "ENTITY"
+          },
+          "listName": {
+            "type": "string",
+            "description": "Plural name on the list in Web Catalog - Terms, Categories, Rules, Policies",
+            "nullable": true,
+            "example": "Entities"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Glossary entry Id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "glossaryId": {
+            "type": "integer",
+            "description": "Database id in Dataedo repository which contains the table.",
+            "format": "int32",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "Program title in Dataedo repository.",
+            "nullable": true,
+            "example": "Customer"
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "Parent glossary entry id.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "typeId": {
+            "type": "integer",
+            "description": "Type of term: term, policy, category, etc.",
+            "format": "int32",
+            "example": 1
+          },
+          "type": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple program response. It contains only the basic information about the program."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Represents the Id of the linked object.",
+            "format": "int32",
+            "example": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Represents the type of the linked object.",
+            "nullable": true,
+            "example": "TABLE"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Represents the sub type of the linked object.",
+            "nullable": true,
+            "example": "TABLE"
+          },
+          "name": {
+            "type": "string",
+            "description": "represents the name of the linked object.",
+            "nullable": true,
+            "example": "customers"
+          },
+          "title": {
+            "type": "string",
+            "description": "represents the title of the linked object.",
+            "nullable": true,
+            "example": "Customers"
+          },
+          "status": {
+            "type": "string",
+            "description": "'D' if table/view was deleted from DBMS, 'A' otherwise.",
+            "nullable": true,
+            "example": "A"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source of the row: 'DBMS' for imported from database, 'USER' for manual defined by user in Dataedo repository",
+            "nullable": true,
+            "example": "DBMS"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a response containing information about a linked object."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Programs.Responses.DetailedProgramResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Program ID in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Program entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "InsertCustomer"
+          },
+          "schema": {
+            "type": "string",
+            "description": "Schema name in Dataedo repository.",
+            "nullable": true,
+            "example": "dbo"
+          },
+          "title": {
+            "type": "string",
+            "description": "Program title in Dataedo repository.",
+            "nullable": true,
+            "example": "Insert Customer"
+          },
+          "objectType": {
+            "type": "string",
+            "description": "Code of object type.",
+            "nullable": true,
+            "example": "PROCEDURE"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Code of object sub type.",
+            "nullable": true,
+            "example": "PROCEDURE"
+          },
+          "databaseId": {
+            "type": "integer",
+            "description": "Database id in Dataedo repository which contains the table.",
+            "format": "int32",
+            "example": 1
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "ID of the parent object.",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentObjectType": {
+            "type": "string",
+            "description": "Object type of the parent object.",
+            "nullable": true,
+            "example": ""
+          },
+          "updateId": {
+            "type": "integer",
+            "description": "ID of the last schema import/update from the source database where the element was created/modified.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.ProgramProperties"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.ObjectMetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Programs.Responses.ProgramProperties": {
+        "type": "object",
+        "properties": {
+          "definition": {
+            "type": "string",
+            "description": "View script imported from DBMS",
+            "nullable": true,
+            "example": "CREATE PROCEDURE InsertCustomer @FirstName NVARCHAR(50) AS BEGIN INSERT INTO customers (first_name) values (@FirstName); END;"
+          },
+          "externalId": {
+            "type": "string",
+            "description": "ID of the row in an external system. Used for synchronization.",
+            "nullable": true,
+            "example": "1"
+          },
+          "functionType": {
+            "type": "string",
+            "description": "Type of function as defined in DBMS.",
+            "nullable": true,
+            "example": "Scalar-valued"
+          },
+          "language": {
+            "type": "string",
+            "description": "Language of the script, if relevant (e.g. views). If null then it is assumed to be 'SQL'.",
+            "nullable": true,
+            "example": "SQL"
+          },
+          "linkedSourceId": {
+            "type": "integer",
+            "description": "ID of the linked source which defines source database for an object.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "status": {
+            "type": "string",
+            "description": "'D' if table/view was deleted from DBMS, 'A' otherwise.",
+            "nullable": true,
+            "example": "A"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source of the row: 'DBMS' for imported from database, 'USER' for manual defined by user in Dataedo repository.",
+            "nullable": true,
+            "example": "DBMS"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Programs.Responses.SimpleProgramResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Program ID in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Program entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "InsertCustomer"
+          },
+          "schema": {
+            "type": "string",
+            "description": "Schema name in Dataedo repository.",
+            "nullable": true,
+            "example": "dbo"
+          },
+          "title": {
+            "type": "string",
+            "description": "Program title in Dataedo repository.",
+            "nullable": true,
+            "example": "Insert Customer"
+          },
+          "objectType": {
+            "type": "string",
+            "description": "Code of object type.",
+            "nullable": true,
+            "example": "PROCEDURE"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Code of object sub type.",
+            "nullable": true,
+            "example": "PROCEDURE"
+          },
+          "databaseId": {
+            "type": "integer",
+            "description": "Database id in Dataedo repository which contains the table.",
+            "format": "int32",
+            "example": 1
+          },
+          "parentId": {
+            "type": "integer",
+            "description": "ID of the parent object.",
+            "format": "int32",
+            "nullable": true
+          },
+          "parentObjectType": {
+            "type": "string",
+            "description": "Object type of the parent object.",
+            "nullable": true,
+            "example": ""
+          },
+          "updateId": {
+            "type": "integer",
+            "description": "ID of the last schema import/update from the source database where the element was created/modified.",
+            "format": "int32",
+            "nullable": true,
+            "example": 1
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Programs.Responses.ProgramProperties"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple program response. It contains only the basic information about the program."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Reports.ReportProperties": {
+        "type": "object",
+        "properties": {
+          "definition": {
+            "type": "string",
+            "description": "Definitioon of a report (if available).",
+            "nullable": true,
+            "example": ""
+          },
+          "embedUrl": {
+            "type": "string",
+            "description": "URL used to embed report in external systems.",
+            "nullable": true,
+            "example": ""
+          },
+          "url": {
+            "type": "string",
+            "description": "URL under which report is available.",
+            "nullable": true,
+            "example": ""
+          },
+          "language": {
+            "type": "string",
+            "description": "Programming language in which report was created.",
+            "nullable": true,
+            "example": "SQL"
+          },
+          "location": {
+            "type": "string",
+            "description": "Location directory of the report.",
+            "nullable": true,
+            "example": ""
+          },
+          "status": {
+            "type": "string",
+            "description": "'D' if report was deleted from DBMS, 'A' otherwise.",
+            "nullable": true,
+            "example": "A"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source of the row: 'DBMS' for imported from database, 'USER' for manual defined by user in Dataedo repository.",
+            "nullable": true,
+            "example": "DBMS"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Reports.Responses.DetailedReportResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Report id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "schema": {
+            "type": "string",
+            "description": "Schema name in Dataedo repository.",
+            "nullable": true,
+            "example": ""
+          },
+          "name": {
+            "type": "string",
+            "description": "Data set entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "customers_report"
+          },
+          "title": {
+            "type": "string",
+            "description": "Data set entity title in Dataedo repository.",
+            "nullable": true,
+            "example": "Customers Report"
+          },
+          "objectType": {
+            "type": "string",
+            "description": "Code of object type",
+            "nullable": true,
+            "example": "REPORT"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Code of object sub type.",
+            "nullable": true,
+            "example": "REPORT"
+          },
+          "reportingId": {
+            "type": "integer",
+            "description": "Documentation which object is part of. Ref: databases.",
+            "format": "int32",
+            "example": 1
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.ReportProperties"
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.ObjectMetadataResponse"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Reports.Responses.SimpleReportResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Report id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "schema": {
+            "type": "string",
+            "description": "Schema name in Dataedo repository.",
+            "nullable": true,
+            "example": ""
+          },
+          "name": {
+            "type": "string",
+            "description": "Data set entity name in Dataedo repository.",
+            "nullable": true,
+            "example": "customers_report"
+          },
+          "title": {
+            "type": "string",
+            "description": "Data set entity title in Dataedo repository.",
+            "nullable": true,
+            "example": "Customers Report"
+          },
+          "objectType": {
+            "type": "string",
+            "description": "Code of object type",
+            "nullable": true,
+            "example": "REPORT"
+          },
+          "subType": {
+            "type": "string",
+            "description": "Code of object sub type.",
+            "nullable": true,
+            "example": "REPORT"
+          },
+          "reportingId": {
+            "type": "integer",
+            "description": "Documentation which object is part of. Ref: databases.",
+            "format": "int32",
+            "example": 1
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Reports.ReportProperties"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple report response. It contains only the basic information about the report entity."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.WorkflowStatuses.WorkflowStatusResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Workflow status entity id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "workflowId": {
+            "type": "integer",
+            "description": "Id of the workflow to which the status belongs.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Status name.",
+            "nullable": true,
+            "example": "Idea"
+          },
+          "description": {
+            "type": "string",
+            "description": "Status description.",
+            "nullable": true,
+            "example": "Initial idea for a new feature."
+          },
+          "published": {
+            "type": "boolean",
+            "description": "Indicates whether the workflow status is published or not.",
+            "example": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [
+        "Bearer"
+      ]
+    }
+  ]
+}
