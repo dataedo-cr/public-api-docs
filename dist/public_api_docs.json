@@ -387,7 +387,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -682,7 +699,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -713,7 +747,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -746,7 +797,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -817,17 +885,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]"
                 }
               }
             }
@@ -1344,7 +1412,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -1375,7 +1460,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Successful operation",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -1934,7 +2036,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -1965,7 +2084,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2318,7 +2454,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2349,7 +2502,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2380,7 +2550,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2445,7 +2632,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2636,7 +2840,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2667,7 +2888,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Areas.SimpleAreaResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2698,7 +2936,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2763,7 +3018,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful operation."
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid input."
@@ -2832,17 +3104,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]"
                 }
               }
             }
@@ -3004,6 +3276,19 @@
         },
         "additionalProperties": false
       },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Columns.Responses.SimpleColumnResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse]": {
         "type": "object",
         "properties": {
@@ -3043,6 +3328,19 @@
         },
         "additionalProperties": false
       },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Domains.SimpleDomainResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.GlossaryEntryTypeResponse]": {
         "type": "object",
         "properties": {
@@ -3056,6 +3354,19 @@
         },
         "additionalProperties": false
       },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.GlossaryEntries.SimpleGlossaryEntryResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse]": {
         "type": "object",
         "properties": {
@@ -3063,6 +3374,19 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.LinkedObjects.LinkedObjectResponse"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Common.CollectionResponse`1[Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse]": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse"
             },
             "nullable": true
           }
@@ -4292,6 +4616,82 @@
         },
         "additionalProperties": false,
         "description": "Represents a response containing information about a linked object."
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.ParameterProperties": {
+        "type": "object",
+        "properties": {
+          "dataLength": {
+            "type": "string",
+            "description": "Data length/precision as text. Depending on data type it can have different formats, e.g. \"100\", \"5,4\", \"MAX\" etc. Null if the parameter has no length/precision defined.",
+            "nullable": true,
+            "example": "100"
+          },
+          "dataType": {
+            "type": "string",
+            "description": "Parameter data type.",
+            "nullable": true,
+            "example": "NVARCHAR"
+          },
+          "mode": {
+            "type": "string",
+            "description": "Parameter's mode.",
+            "nullable": true,
+            "example": "IN"
+          },
+          "status": {
+            "type": "string",
+            "description": "'D' if parameter was deleted from DBMS, 'A' otherwise.",
+            "nullable": true,
+            "example": "A"
+          },
+          "source": {
+            "type": "string",
+            "description": "Source of the row: 'DBMS' for imported from a database, 'USER' for manually defined by a user in Dataedo repository.",
+            "nullable": true,
+            "example": "DBMS"
+          },
+          "ordinalPosition": {
+            "type": "integer",
+            "description": "Position of parameter in parameters list.",
+            "format": "int32",
+            "example": 1
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.SimpleParameterResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Parameter Id in Dataedo repository.",
+            "format": "int32",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "description": "Parameter name, \"Returns\" for a function's output.",
+            "nullable": true,
+            "example": "param1"
+          },
+          "procedureId": {
+            "type": "integer",
+            "description": "Procedure to which the parameter belongs.",
+            "format": "int32",
+            "example": 1
+          },
+          "descriptionPlain": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.DescriptionPlainResponse"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.MetadataResponse"
+          },
+          "properties": {
+            "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.Parameters.Responses.ParameterProperties"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is used to describe the simple parameter response. It contains only the basic information about the parameter."
       },
       "Dataedo.Public.Models.Public.v1.Features.Programs.Responses.DetailedProgramResponse": {
         "type": "object",
