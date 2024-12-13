@@ -1,3 +1,248 @@
+Skip to:
+
+Skip to Jira Navigation
+Skip to Side Navigation
+Skip to Main Content
+
+
+Your work
+
+Projects
+
+Filters
+
+Dashboards
+
+Teams
+
+Apps
+
+Create
+Search
+
+2
+
+
+
+
+Development
+Software project
+Menu
+PLANNING
+DEVELOPMENT
+You're in a company-managed project
+Learn more
+
+
+Projects
+Development
+
+Add parent
+
+DEV-19022
+
+
+[PORTAL] Public API 24.4 documentation
+
+Add
+
+Apps
+Abstract
+
+
+None
+Description
+
+Do dokumentacji publicznego API trzeba dorzucić opisy rzeczy, które doszły w 24.4. Należy zaktualizować grafikę dostępną pod Public API - Dataedo Documentation i jsona, na podstawie którego powstał Swagger UI 
+
+Brief summary of the work done
+
+Rozszerzenie dokumentacji o zwracanie i update custom fields.
+
+Tests Scenario
+
+
+None
+Attachments
+3
+
+
+Open 24_4_PUBLIC API.png
+24_4_PUBLIC API.png
+24_4_PUBLICAPI.png
+05 Dec 2024, 05:47 pm
+
+Open 24_4_PUBLIC API.odt
+24_4_PUBLIC API.odt
+24_4_PUBLICAPI.odt
+05 Dec 2024, 05:47 pm
+
+Open swagger.json
+swagger.json
+05 Dec 2024, 05:46 pm
+
+
+Activity
+Show:
+
+All
+
+Comments
+
+History
+
+Work log
+
+Newest first
+
+Add a comment…
+Pro tip: press 
+M
+ to comment
+
+kacper.bialy 
+last week
+Edited
+
+@Maciej Foryś Zaktualizowaliśmy z Marcinem dokumentacje, trzeba jeszcze odświeżyć github page, załączam aktualny json do tegoswagger.json. Przepinam na Ciebie
+
+
+
+Maciej Foryś 
+7 November 2024 at 07:32
+
+@kacper.bialy jak będziesz siadał do tego tematu, to odezwij się proszę.
+
+
+Edit
+
+
+Open
+
+Actions
+Details
+Assignee
+
+
+
+Maciej Foryś
+Product Manager
+
+
+None
+Development
+
+Create branch
+
+8 commits
+8 days ago
+
+1 pull request
+MERGED
+2 builds
+Releases
+Staging
+
+Add feature flag
+Story Points
+
+
+None
+Labels
+
+
+None
+Include on
+
+
+None
+Required actions
+
+
+None
+Components
+
+
+Public API
+Blocker
+
+
+None
+Reporter
+
+
+Maciej Foryś
+Leader
+
+
+None
+Reviewer
+
+
+
+Piotr Tomaszewski
+Tester
+
+
+None
+Metatester
+
+
+None
+Team
+
+
+None
+Connector
+
+
+None
+Time tracking
+
+
+5h 5m logged
+Fix versions
+
+
+24.4
+Priority
+
+
+
+Medium
+More fields
+Parent
+
+
+None
+T-Shirt Estimation
+
+
+None
+PM Reference
+
+
+None
+Due date
+
+
+None
+Automation
+
+Rule executions
+Sentry
+
+Linked Issues
+Foxly Priorities
+
+Priority score
+Created 4 November 2024 at 14:37
+Updated 4 days ago
+Configure
+
+swagger.json
+json · 202 KB
+
 {
   "openapi": "3.0.1",
   "info": {
@@ -257,6 +502,112 @@
         }
       }
     },
+    "/public/v1/areas/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "AreasV1"
+        ],
+        "summary": "Gets area custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the area stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/areas/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "AreasV1"
+        ],
+        "summary": "Update area custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the area stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
     "/public/v1/columns/{id}": {
       "get": {
         "tags": [
@@ -271,8 +622,6 @@
             "description": "The Id of the column stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -325,8 +674,6 @@
             "description": "The Id of the column stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -378,8 +725,6 @@
             "description": "The Id of the column stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -429,8 +774,6 @@
             "description": "The Id of the column stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -487,8 +830,6 @@
             "description": "The Id of the column stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -510,6 +851,112 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "Gets column custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/columns/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "ColumnsV1"
+        ],
+        "summary": "Update column custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the column stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
               }
             }
           },
@@ -637,8 +1084,6 @@
             "description": "The Id of the data set entity stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -690,8 +1135,6 @@
             "description": "The Id of the data set entity stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -788,8 +1231,6 @@
             "description": "The Id of the data set entity stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -838,8 +1279,6 @@
             "description": "The Id of the data set entity stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -923,8 +1362,6 @@
             "description": "The Id of the data set entity stored in the Dataedo repository.",
             "required": true,
             "schema": {
-              "maximum": 2147483647,
-              "minimum": 0,
               "type": "integer",
               "format": "int32"
             }
@@ -946,6 +1383,112 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Gets data set custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data set stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sets/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "DataSetsV1"
+        ],
+        "summary": "Update data set custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of data set stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
               }
             }
           },
@@ -1544,6 +2087,112 @@
         }
       }
     },
+    "/public/v1/data-sources/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Gets data source custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/data-sources/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "DataSourcesV1"
+        ],
+        "summary": "Update data source custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the data source stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
     "/public/v1/domains/{id}": {
       "get": {
         "tags": [
@@ -1891,6 +2540,112 @@
             "application/*+json": {
               "schema": {
                 "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Common.Requests.UpdateTitleRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Gets domain custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domain stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/domains/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "DomainsV1"
+        ],
+        "summary": "Update domain custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the domain stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
               }
             }
           },
@@ -2286,6 +3041,112 @@
           },
           "401": {
             "description": "Unauthorized access."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Gets glossary entry custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/glossary-entries/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "GlossaryEntriesV1"
+        ],
+        "summary": "Update glossary entry custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the glossary entry stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
           }
         }
       }
@@ -2706,6 +3567,112 @@
           },
           "400": {
             "description": "Invalid input"
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Gets program custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/programs/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "ProgramsV1"
+        ],
+        "summary": "Update program custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the program stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
           },
           "401": {
             "description": "Unauthorized access."
@@ -3184,6 +4151,112 @@
         }
       }
     },
+    "/public/v1/reports/{id}/custom-fields": {
+      "get": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Gets report custom fields by Id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
+    "/public/v1/reports/{id}/put-custom-field-values": {
+      "post": {
+        "tags": [
+          "ReportsV1"
+        ],
+        "summary": "Update report custom fields.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The Id of the report stored in the Dataedo repository.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation."
+          },
+          "400": {
+            "description": "Invalid input."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "404": {
+            "description": "Not found."
+          }
+        }
+      }
+    },
     "/public/v1/workflow-statuses": {
       "get": {
         "tags": [
@@ -3467,6 +4540,11 @@
             "description": "Gets or sets the user that updated record.",
             "nullable": true,
             "example": "John Doe"
+          },
+          "source": {
+            "type": "string",
+            "description": "Gets or sets the source (DBMS or USER) of object.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -3500,6 +4578,11 @@
             "description": "Gets or sets the user that updated record.",
             "nullable": true,
             "example": "John Doe"
+          },
+          "source": {
+            "type": "string",
+            "description": "Gets or sets the source (DBMS or USER) of object.",
+            "nullable": true
           },
           "databaseCreationDate": {
             "type": "string",
@@ -3556,7 +4639,7 @@
             "description": "Id of the parent area.",
             "format": "int32",
             "nullable": true,
-            "example": 1
+            "example": 2
           },
           "domainId": {
             "type": "integer",
@@ -3593,7 +4676,7 @@
             "description": "Id of the parent area.",
             "format": "int32",
             "nullable": true,
-            "example": 1
+            "example": 2
           },
           "domainId": {
             "type": "integer",
@@ -3857,6 +4940,37 @@
         },
         "additionalProperties": false
       },
+      "Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldCollection": {
+        "type": "object",
+        "properties": {
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldInfo"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Custom field name.",
+            "nullable": true,
+            "example": "field1"
+          },
+          "value": {
+            "type": "string",
+            "description": "Custom field value in specific to custom field definition format.",
+            "nullable": true,
+            "example": "2023-10-15T14:30:00Z"
+          }
+        },
+        "additionalProperties": false
+      },
       "Dataedo.Public.Models.Public.v1.Features.CustomFields.CustomFieldResponse": {
         "type": "object",
         "properties": {
@@ -3895,6 +5009,11 @@
             "description": "Field type:\r\nTEXT - plain text field,\r\nLIST_CLOSED - closed drop-down,\r\nLIST_OPEN - open drop-down\r\nMULTI_VALUE_LIST_CLOSED - closed multi-select drop-down\r\nINTEGER - number\r\nCHECKBOX - checkbox",
             "nullable": true,
             "example": "LIST_OPEN"
+          },
+          "format": {
+            "type": "string",
+            "description": "Custom field format.",
+            "nullable": true
           },
           "definition": {
             "type": "string",
@@ -4471,7 +5590,7 @@
             "description": "Parent glossary entry id.",
             "format": "int32",
             "nullable": true,
-            "example": 1
+            "example": 2
           },
           "typeId": {
             "type": "integer",
@@ -4553,7 +5672,7 @@
             "description": "Parent glossary entry id.",
             "format": "int32",
             "nullable": true,
-            "example": 1
+            "example": 2
           },
           "typeId": {
             "type": "integer",
